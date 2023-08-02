@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AProfCursos</title>
+    <link rel="stylesheet" href="exercício3.css">
+    <style>
+         audio::-webkit-media-controls-start-playback-button {
+            display: none;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div class="batatinha">
+        <audio id="audioPlayer" autoplay>
+            <source src=https://www.youtube.com/watch?v=13-Mj5MZ5Ow type="audio/mpeg">
+
+        </audio>
+        <video autoplay loop muted plays-inline class="computadoreshumanoides">
+
+            <source src="C:\Users\fake2\Downloads\SaveTube.io-Study stock footage.mp4" type="video/mp4">
+        </video>
+
+        <nav>
+            <img src="C:\Users\fake2\Downloads\aprof-removebg-preview.png" class="logo">
+            <ul>
+                <li><a href=file:///C:/Users/fake2/Downloads/exerc%C3%ADcio3.html>Início</a></li>
+                <li><a href="https://www.passofundo.ideau.com.br/">Instituição</a></li>
+                <li><a href=file:///C:/Users/fake2/Downloads/exerc%C3%ADcio3p3.html>Fundadores</a></li>
+                <li><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Sair</a></li>
+            </ul>
+        </nav>
+        <div class="content1010">
+            <h1>Nosso objetivo é o seu futuro.</h1>
+            <a href=file:///C:/Users/fake2/Downloads/exerc%C3%ADcio3p2.html>Conheça as opções de curso.</a>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
+
+
+</html>
