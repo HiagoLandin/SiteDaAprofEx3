@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>AProf - Controle de Cursos</title>
+    <style>
+        body {
+          background-image: url(https://media.distractify.com/brand-img/g0w2z76Nb/0x0/alan-wake-2-spoilers-2-1686768281291.jpg);
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        .course-form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="date"],
+        input[type="time"],
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+        }
+
+        button {
+            background-color: springgreen;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .course-list {
+            margin-top: 30px;
+        }
+
+        .course-item {
+            padding: 10px;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="course-form">
+        <h2 style="color: #f9f9f9;">Novo Curso</h2>
+        <label style="color: #f9f9f9;" for="courseName">Nome do Curso:</label>
+        <input type="text" id="courseName">
+
+        <label style="color: #f9f9f9;"startDate">Data de Início:</label>
+        <input type="date" id="startDate">
+
+        <label style="color: #f9f9f9;"endDate">Data de Término:</label>
+        <input type="date" id="endDate">
+
+        <label style="color: #f9f9f9;" startTime">Horário de Início:</label>
+        <input type="time" id="startTime">
+
+        <label style="color: #f9f9f9;"endTime">Horário de Término:</label>
+        <input type="time" id="endTime">
+
+        <label style="color: #f9f9f9;"professorName">Nome do Professor:</label>
+        <input type="text" id="professorName">
+
+        <label style="color:#f9f9f9 ;"professorPhone">Telefone Celular do Professor:</label>
+        <input type="text" id="professorPhone">
+
+        <label style="color: #f9f9f9;"hourlyRate">Valor da Hora/Aula:</label>
+        <input type="number" step="0.01" id="hourlyRate">
+
+        <button id="addCourseBtn">Adicionar Curso</button>
+    </div>
+
+    <div class="course-list">
+        <h2>Lista de Cursos</h2>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        var courses = [];
+
+        $(document).ready(function() {
+            $('#addCourseBtn').click(function() {
+                var courseName = $('#courseName').val();
+                var startDate = $('#startDate').val();
+                var endDate = $('#endDate').val();
+                var startTime = $('#startTime').val();
+                var endTime = $('#endTime').val();
+                var professorName = $('#professorName').val();
+                var professorPhone = $('#professorPhone').val();
+                var hourlyRate = parseFloat($('#hourlyRate').val());
+
+                var course = {
+                    name: courseName,
+                    startDate: startDate,
+                    endDate: endDate,
+                    startTime: startTime,
+                    endTime: endTime,
+                    professorName: professorName,
+                    professorPhone: professorPhone,
+                    hourlyRate: hourlyRate
+                };
+
+
+                courses.push(course);
+
+                $('#courseName, #startDate, #endDate, #startTime, #endTime, #professorName, #professorPhone, #hourlyRate').val('');
+
+                updateCourseList();
+            });
+        });
+        function updateCourseList() {
+            var courseListHtml = '';
+
+            for (var i = 0; i < courses.length; i++) {
+                var course = courses[i];
+                courseListHtml += '<div class="course-item">';
+                courseListHtml += '<h3>' + course.name + '</h3>';
+                courseListHtml += '<p>Data: ' + course.startDate + ' a ' + course.endDate + '</p>';
+                courseListHtml += '<p>Horário: ' + course.startTime + ' a ' + course.endTime + '</p>';
+                courseListHtml += '<p>Professor: ' + course.professorName + ' (' + course.professorPhone + ')</p>';
+                courseListHtml += '<p>Valor/Hora: R$ ' + course.hourlyRate.toFixed(2) + '</p>';
+                courseListHtml += '</div>';
+            }
+
+            $('.course-list').html(courseListHtml);
+        }
+    </script>
+</body>
+</html>
